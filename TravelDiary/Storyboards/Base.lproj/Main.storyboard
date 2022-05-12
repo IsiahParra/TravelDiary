@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Journal Entry List Table View Controller-->
         <scene sceneID="nPN-nm-h0s">
             <objects>
-                <tableViewController id="l70-Mv-Hz0" sceneMemberID="viewController">
+                <tableViewController id="l70-Mv-Hz0" customClass="JournalEntryListTableViewController" customModule="TravelDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="chk-S6-S3R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" rowHeight="70" id="8Rv-qJ-3Ef">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="journalEntryCell" rowHeight="70" id="8Rv-qJ-3Ef" customClass="JournalEntryTableViewCell" customModule="TravelDiary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Rv-qJ-3Ef" id="Bv4-HZ-SeX">
@@ -58,9 +58,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="addressTextLabel" destination="hcX-vf-tXP" id="oX5-G0-46k"/>
-                                    <outlet property="dateTextLabel" destination="grB-6O-RG5" id="bmr-fH-EgQ"/>
-                                    <outlet property="nameLabelTextLabel" destination="qwE-N3-JSL" id="NKJ-Tp-kBg"/>
+                                    <outlet property="journalEntryAddressLabel" destination="hcX-vf-tXP" id="owc-4p-MWv"/>
+                                    <outlet property="journalEntryDateLabel" destination="grB-6O-RG5" id="DfU-Pr-NwO"/>
+                                    <outlet property="journalEntryNameLabel" destination="qwE-N3-JSL" id="xfZ-c9-QFR"/>
                                     <segue destination="9sb-Li-bA7" kind="show" identifier="toDetailVC" id="Sfx-oq-yTW"/>
                                 </connections>
                             </tableViewCell>
@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1637.68115942029" y="77.678571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Journal Entry Detail View Controller-->
         <scene sceneID="KGq-iM-G0L">
             <objects>
-                <viewController id="9sb-Li-bA7" sceneMemberID="viewController">
+                <viewController id="9sb-Li-bA7" customClass="JournalEntryDetailViewController" customModule="TravelDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PNb-gN-VZh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,8 +144,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wAl-K8-VEU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gfV-r5-BlH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gfV-r5-BlH">
+                            <connections>
+                                <action selector="savedButtonTapped:" destination="9sb-Li-bA7" id="1Gd-YM-WEZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="jorunalEntryDateLabel" destination="rEs-Gi-2bD" id="YHO-uf-Pqo"/>
+                        <outlet property="journalEntryAddressTextField" destination="Uhp-hh-jlK" id="XUv-wF-TyA"/>
+                        <outlet property="journalEntrySummaryTextView" destination="Daw-Zq-Xig" id="lH4-rf-ps7"/>
+                        <outlet property="journalEntryTitleTextField" destination="l7u-gM-WXL" id="Smc-eY-Qud"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7h-tU-jl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,7 +181,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Sfx-oq-yTW"/>
+        <segue reference="Slc-Vp-COY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="default" width="1260" height="624"/>
