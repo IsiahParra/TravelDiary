@@ -60,7 +60,7 @@
                                 <connections>
                                     <outlet property="journalEntryAddressLabel" destination="hcX-vf-tXP" id="owc-4p-MWv"/>
                                     <outlet property="journalEntryDateLabel" destination="grB-6O-RG5" id="DfU-Pr-NwO"/>
-                                    <outlet property="journalEntryNameLabel" destination="qwE-N3-JSL" id="xfZ-c9-QFR"/>
+                                    <outlet property="journalEntryTitleLabel" destination="qwE-N3-JSL" id="xfZ-c9-QFR"/>
                                     <segue destination="9sb-Li-bA7" kind="show" identifier="toDetailVC" id="Sfx-oq-yTW"/>
                                 </connections>
                             </tableViewCell>
@@ -181,7 +181,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Slc-Vp-COY"/>
+        <segue reference="Sfx-oq-yTW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="default" width="1260" height="624"/>
